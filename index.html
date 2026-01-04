@@ -25,11 +25,35 @@
             z-index: 1000;
         }
 
+        .navbar {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: flex-start; /* Alineado a la izquierda */
+    background-color: black;
+}
+
         .logo-kaizen {
             height: 70px; /* Ajusta el tamaño aquí */
             width: auto;
             display: block;
         }
+
+        /* --- AJUSTE PARA CELULARES (Pantallas menores a 600px) --- */
+@media (max-width: 600px) {
+    .navbar {
+        justify-content: center; /* En celular queda mejor centrado */
+        padding: 10px;
+    }
+
+    .logo-kaizen {
+        height: 45px; /* Tamaño reducido para que no ocupe media pantalla */
+    }
+
+    .titulo {
+        font-size: 35px !important; /* Reducimos el título también */
+        padding: 40px 10px !important; 
+    }
+}
 
         /* --- ESTILOS EXISTENTES --- */
         .titulo {
@@ -137,21 +161,18 @@
             border-radius: 5px;
             text-transform: uppercase;
         }
-         @media (max-width: 600px) {
-            .titulo { font-size: 35px; padding-top: 100px; }
-            .logo-kaizen { height: 50px; }
-        }
+        
     
     </style>
 </head>
 
 <body>
 
-    <div class="navbar">
-        <a href="/">
-            <img src="logo.png" alt="Logo Kaizen Woman" class="logo-kaizen">
-        </a>
-    </div>
+   <nav class="navbar">
+    <a href="/">
+        <img src="logo.png" alt="Logo Kaizen Woman" class="logo-kaizen">
+    </a>
+</nav>
 
     <div class="titulo">
         KAIZEN TRANSFORM
