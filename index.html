@@ -17,50 +17,44 @@
             text-align: center;
         }
 
-        /* --- ESTILOS EXISTENTES --- */
-        .titulo {
-            font-family: 'Anton', Impact, sans-serif;
-            background-color: #E53935; /* rojo */
-            color: black;
-            font-size: 60px;
-            text-align: center;
-            padding: 60px 20px; /* Aumenté el padding superior para dar aire al logo */
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-top: 4px solid black;
-            border-bottom: 4px solid black;
+        /* --- LOGO --- */
+        .navbar {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        .logo-kaizen {
+            height: 70px;
+            width: auto;
+            display: block;
         }
 
-        .titulodos {
+        /* --- TÍTULOS --- */
+        .titulo {
+            font-family: 'Anton', Impact, sans-serif;
+            background-color: #E53935;
+            color: black;
+            font-size: 60px;
+            padding: 80px 20px 60px;
+            text-transform: uppercase;
+            border-bottom: 4px solid black;
+        }
+        .titulo2 {
             font-family: 'Anton', Impact, sans-serif;
             color: #E53935;
             font-size: 50px;
             margin: 40px 0;
             text-transform: uppercase;
         }
-
         .leyenda {
-            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
             color: black;
-            font-size: 18px;
-            text-align: center;
             margin-top: 15px;
-            letter-spacing: 1px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
         }
 
-        .gancho {
-            font-family: 'Anton', Impact, sans-serif;
-            color: white;
-            font-size: 18px;
-            text-align: center;
-            margin-top: 15px;
-            letter-spacing: 1px;
-        }
-
-            .titulo {
-                font-size: 40px;
-                padding-top: 80px; /* Más espacio para que el logo no tape el texto */
-            }
         /* --- CARRUSEL CORREGIDO --- */
         .carousel {
             position: relative;
@@ -116,7 +110,8 @@
             font-weight: bold;
             border-radius: 5px;
             text-transform: uppercase;
-        }    
+        }
+
     
     </style>
 </head>
