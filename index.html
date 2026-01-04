@@ -17,19 +17,6 @@
             text-align: center;
         }
 
-        /* --- LOGO --- */
-        .navbar {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
-        }
-        .logo-kaizen {
-            height: 70px;
-            width: auto;
-            display: block;
-        }
-
         /* --- TÍTULOS --- */
         .titulo {
             font-family: 'Anton', Impact, sans-serif;
@@ -112,50 +99,34 @@
             text-transform: uppercase;
         }
 
-    
+        @media (max-width: 600px) {
+            .titulo { font-size: 35px; padding-top: 100px; }
+            .logo-kaizen { height: 50px; }
+        }
     </style>
 </head>
 
 <body>
-    
+
+
     <div class="titulo">
         KAIZEN TRANSFORM
-        <div class="leyenda">
-            EN 12 SEMANAS TRANSFORMA TU CUERPO, TU SALUD Y TU AUTOESTIMA
-        </div>
+        <div class="leyenda">EN 12 SEMANAS TRANSFORMA TU CUERPO Y AUTOESTIMA</div>
     </div>
 
-    <div style="max-width:600px; margin:20px auto; padding: 0 20px;">
-        <div class="gancho">
-            Para mujeres que quieren perder peso sin sufrir con la dieta y ejercicio
+    <div style="padding: 20px;">
+        <div style="font-family: 'Anton'; font-size: 20px; margin-bottom: 20px;">
+            PARA MUJERES QUE QUIEREN PERDER PESO SIN SUFRIR
         </div>
+        
+        <iframe width="320" height="180" src="https://www.youtube.com/embed/TU_VIDEO_AQUI" frameborder="0" allowfullscreen></iframe>
+        
+        <p>Si te has dejado al final, este espacio es para ti.</p>
+        
+        <a href="https://calendly.com/led_jl29/30min" class="btn-cta">QUIERO EMPEZAR</a>
     </div>
 
-    <div class="video-responsive">
-    <iframe 
-        src="https://youtu.be/wDzvwpRuKm4?si=CxqyPkNvqyBKW-dp" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-    </iframe>
-</div>
-
-    <a href="https://calendly.com/led_jl29/30min?back=1&month=2025-11"
-       style="
-       display:inline-block;
-       margin-top:20px;
-       margin-bottom: 50px;
-       padding:15px 30px;
-       background-color:white;
-       color:black;
-       text-decoration:none;
-       font-weight:bold;
-       border-radius:5px;
-       text-transform: uppercase;
-       ">
-        QUIERO EMPEZAR
-    </a>
-    <div class="titulodos">CAMBIOS REALES</div>
+    <div class="titulo2">CAMBIOS REALES</div>
 
     <div class="carousel">
         <button class="prev" id="btnPrev">&#10094;</button>
@@ -165,7 +136,7 @@
             <div class="slide"><img src="cambio1.jpeg" alt="1"></div>
             <div class="slide"><img src="cambio2.jpeg" alt="2"></div>
             <div class="slide"><img src="cambio3.jpeg" alt="3"></div>
-        </div>
+                </div>
     </div>
 
     <script>
