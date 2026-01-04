@@ -69,15 +69,66 @@
             display: block;
         }
 
-        /* Ajuste para celulares */
-        @media (max-width: 600px) {
-            .logo-kaizen {
-                height: 50px;
-            }
             .titulo {
                 font-size: 40px;
                 padding-top: 80px; /* Más espacio para que el logo no tape el texto */
             }
+        /* --- CARRUSEL CORREGIDO --- */
+        .carousel {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto 60px;
+            overflow: hidden; /* Esconde las fotos que no están activas */
+            border-radius: 10px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .slide img {
+            width: 100%;
+            display: block;
+        }
+
+        /* BOTONES (Z-INDEX ALTO PARA QUE SIEMPRE FUNCIONEN) */
+        .carousel button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            color: black;
+            border: none;
+            font-size: 25px;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 999; /* Esto asegura que el botón esté por encima de la imagen */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .carousel .prev { left: 10px; }
+        .carousel .next { right: 10px; }
+
+        /* BOTÓN CTA */
+        .btn-cta {
+            display: inline-block;
+            margin: 30px 0;
+            padding: 15px 35px;
+            background-color: white;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
         }
     </style>
 </head>
@@ -113,11 +164,6 @@
         </iframe>
     </div>
 
-    <p style="max-width:600px; margin:20px auto; padding: 0 20px; line-height: 1.5;">
-        Si sientes que haces todo por todos pero te has dejado al final,
-        este espacio es para ti.
-    </p>
-
     <a href="https://calendly.com/led_jl29/30min?back=1&month=2025-11"
        style="
        display:inline-block;
@@ -133,6 +179,63 @@
        ">
         QUIERO EMPEZAR
     </a>
+    <div class="titulo2">CAMBIOS REALES</div>
+
+    <div class="carousel">
+        <button class="prev" id="btnPrev">&#10094;</button>
+        <button class="next" id="btnNext">&#10095;</button>
+
+        <div class="carousel-track" id="track">
+            <div class="slide"><img src="cambio1.jpeg" alt="1"></div>
+            <div class="slide"><img src="cambio2.jpeg" alt="2"></div>
+            <div class="slide"><img src="cambio3.jpeg" alt="3"></div>
+        </div>
+    </div>
+
+    <script>
+        const track = document.getElementById('track');
+        const slides = document.querySelectorAll('.slide');
+        const nextBtn = document.getElementById('btnNext');
+        const prevBtn = document.getElementById('btnPrev');
+
+        let currentIndex = 0;
+        let autoPlay;
+
+        function moverCarrusel() {
+            // Usamos concatenación simple para evitar errores de comillas
+            track.style.transform = "translateX(" + (currentIndex * -100) + "%)";
+        }
+
+        function siguiente() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            moverCarrusel();
+        }
+
+        function anterior() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            moverCarrusel();
+        }
+
+        // Iniciar Autoplay
+        function startTimer() {
+            clearInterval(autoPlay);
+            autoPlay = setInterval(siguiente, 4000);
+        }
+
+        // Eventos de clic
+        nextBtn.onclick = function() {
+            siguiente();
+            startTimer();
+        };
+
+        prevBtn.onclick = function() {
+            anterior();
+            startTimer();
+        };
+
+        // Arrancar
+        startTimer();
+    </script>
 
 </body>
 </html>
