@@ -161,6 +161,24 @@
             border-radius: 5px;
             text-transform: uppercase;
         }
+
+        .video-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+    position: relative;
+    height: 0;
+    max-width: 800px; /* Ancho máximo para que no se vea gigante en PC */
+    margin: 30px auto;
+    border-radius: 10px;
+}
+
+.video-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
         
     
     </style>
@@ -187,15 +205,14 @@
         </div>
     </div>
 
-    <div style="margin:30px auto;">
-        <iframe 
-            width="320" 
-            height="180"
-            src="https://youtu.be/wDzvwpRuKm4"
-            frameborder="0"
-            allowfullscreen>
-        </iframe>
-    </div>
+    <div class="video-responsive">
+    <iframe 
+        src="https://youtu.be/wDzvwpRuKm4?si=CxqyPkNvqyBKW-dp" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+</div>
 
     <a href="https://calendly.com/led_jl29/30min?back=1&month=2025-11"
        style="
