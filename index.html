@@ -17,20 +17,32 @@
             text-align: center;
         }
 
+        /* --- NAVBAR Y LOGO --- */
+        .navbar {
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            background-color: black;
+        }
+        .logo-kaizen {
+            height: 70px; /* Tamaño PC */
+            width: auto;
+        }
+
         /* --- TÍTULOS --- */
         .titulo {
             font-family: 'Anton', Impact, sans-serif;
             background-color: #E53935;
             color: black;
-            font-size: 60px;
-            padding: 80px 20px 60px;
+            font-size: clamp(35px, 8vw, 60px); /* Tamaño fluido */
+            padding: 40px 20px;
             text-transform: uppercase;
             border-bottom: 4px solid black;
         }
         .titulodos {
-             font-family: 'Anton', Impact, sans-serif;
+            font-family: 'Anton', Impact, sans-serif;
             color: #E53935;
-            font-size: 50px;
+            font-size: clamp(30px, 7vw, 50px);
             margin: 40px 0;
             text-transform: uppercase;
         }
@@ -38,155 +50,146 @@
             font-size: 18px;
             color: black;
             margin-top: 15px;
-            font-family: Arial, sans-serif;
             font-weight: bold;
         }
 
-        /* --- CARRUSEL CORREGIDO --- */
+        /* --- CONTENEDOR DE VIDEO --- */
+        .seccion-video {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centra todo el contenido */
+        }
+        .video-container {
+            width: 100%;
+            max-width: 700px;
+            aspect-ratio: 16/9;
+            margin: 20px 0;
+        }
+
+        /* --- BOTÓN CTA --- */
+        .btn-cta {
+            display: inline-block;
+            margin: 20px auto 40px; /* Centrado con margen */
+            padding: 18px 40px;
+            background-color: white;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: 'Anton', sans-serif;
+            font-size: 20px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            transition: transform 0.2s;
+        }
+        .btn-cta:hover {
+            transform: scale(1.05);
+            background-color: #f0f0f0;
+        }
+
+        /* --- CARRUSEL --- */
         .carousel {
             position: relative;
             max-width: 500px;
             margin: 0 auto 60px;
-            overflow: hidden; /* Esconde las fotos que no están activas */
+            overflow: hidden;
             border-radius: 10px;
         }
-
         .carousel-track {
             display: flex;
             transition: transform 0.5s ease-in-out;
-            width: 100%;
         }
+        .slide { min-width: 100%; }
+        .slide img { width: 100%; display: block; }
 
-        .slide {
-            min-width: 100%;
-            box-sizing: border-box;
-        }
-
-        .slide img {
-            width: 100%;
-            display: block;
-        }
-
-        /* BOTONES (Z-INDEX ALTO PARA QUE SIEMPRE FUNCIONEN) */
         .carousel button {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             background: rgba(255, 255, 255, 0.9);
-            color: black;
             border: none;
             font-size: 25px;
             padding: 10px 15px;
             cursor: pointer;
             border-radius: 50%;
-            z-index: 999; /* Esto asegura que el botón esté por encima de la imagen */
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 10;
         }
-
         .carousel .prev { left: 10px; }
         .carousel .next { right: 10px; }
 
-        /* BOTÓN CTA */
-        .btn-cta {
-            display: inline-block;
-            margin: 30px 0;
-            padding: 15px 35px;
-            background-color: white;
-            color: black;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            text-transform: uppercase;
-        }
-
+        /* --- AJUSTES CELULAR --- */
         @media (max-width: 600px) {
-            .titulo { font-size: 35px; padding-top: 100px; }
-            .logo-kaizen { height: 50px; }
+            .logo-kaizen { height: 45px; }
+            .navbar { padding: 10px; }
+            .btn-cta { width: 80%; padding: 15px 10px; }
         }
     </style>
 </head>
 
 <body>
 
+    <nav class="navbar">
+        <img src="logo.png" alt="Logo Kaizen" class="logo-kaizen">
+    </nav>
 
     <div class="titulo">
         KAIZEN TRANSFORM
         <div class="leyenda">EN 12 SEMANAS TRANSFORMA TU CUERPO Y AUTOESTIMA</div>
     </div>
 
-    <div style="padding: 20px;">
-        <div style="font-family: 'Anton'; font-size: 20px; margin-bottom: 20px;">
-            PARA MUJERES QUE QUIEREN PERDER PESO SIN SUFRIR
+    <main class="seccion-video">
+        <div style="font-family: 'Anton'; font-size: 22px; text-transform: uppercase; color: white;">
+            Para mujeres que quieren perder peso sin sufrir
         </div>
 
-        <iframe 
-  src="https://vimeo.com/1151430854"
-  width="50%" 
-  height="360"
-  frameborder="0"
-  allow="autoplay; fullscreen"
-  allowfullscreen>
-</iframe>
+        <div class="video-container">
+            <iframe 
+                src="https://player.vimeo.com/video/1151430854?autoplay=1&muted=1&loop=1&autopause=0" 
+                width="100%" 
+                height="100%" 
+                frameborder="0" 
+                allow="autoplay; fullscreen" 
+                allowfullscreen>
+            </iframe>
+        </div>
 
-        <a href="https://calendly.com/led_jl29/30min" class="btn-cta">QUIERO EMPEZAR</a>
-    </div>
+        <a href="https://calendly.com/led_jl29/30min" class="btn-cta">
+            QUIERO EMPEZAR
+        </a>
+    </main>
 
     <div class="titulodos">CAMBIOS REALES</div>
 
     <div class="carousel">
         <button class="prev" id="btnPrev">&#10094;</button>
         <button class="next" id="btnNext">&#10095;</button>
-
         <div class="carousel-track" id="track">
             <div class="slide"><img src="cambio1.jpeg" alt="1"></div>
             <div class="slide"><img src="cambio2.jpeg" alt="2"></div>
             <div class="slide"><img src="cambio3.jpeg" alt="3"></div>
-                </div>
+        </div>
     </div>
 
     <script>
         const track = document.getElementById('track');
         const slides = document.querySelectorAll('.slide');
-        const nextBtn = document.getElementById('btnNext');
-        const prevBtn = document.getElementById('btnPrev');
-
         let currentIndex = 0;
-        let autoPlay;
 
         function moverCarrusel() {
-            // Usamos concatenación simple para evitar errores de comillas
             track.style.transform = "translateX(" + (currentIndex * -100) + "%)";
         }
-
         function siguiente() {
             currentIndex = (currentIndex + 1) % slides.length;
             moverCarrusel();
         }
-
         function anterior() {
             currentIndex = (currentIndex - 1 + slides.length) % slides.length;
             moverCarrusel();
         }
 
-        // Iniciar Autoplay
-        function startTimer() {
-            clearInterval(autoPlay);
-            autoPlay = setInterval(siguiente, 4000);
-        }
-
-        // Eventos de clic
-        nextBtn.onclick = function() {
-            siguiente();
-            startTimer();
-        };
-
-        prevBtn.onclick = function() {
-            anterior();
-            startTimer();
-        };
-
-        // Arrancar
-        startTimer();
+        document.getElementById('btnNext').onclick = siguiente;
+        document.getElementById('btnPrev').onclick = anterior;
+        setInterval(siguiente, 4000);
     </script>
 
 </body>
